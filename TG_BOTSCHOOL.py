@@ -1,7 +1,7 @@
 import telebot
 from telebot import types
 import time
-bot = telebot.TeleBot('7849120078:AAEHYzZSQKHpNd4UltD9hW0ydw-zqFxbcVc') 
+bot = telebot.TeleBot('TOKEN') 
 bot.set_webhook()
 
 @bot.message_handler(commands = ['start'])
