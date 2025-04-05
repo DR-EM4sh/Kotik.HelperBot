@@ -1,10 +1,13 @@
+# -- Разбирайтесь сами, мне лень писать ((( --
 import telebot
 from telebot import types
 import time
 bot = telebot.TeleBot('TOKEN') 
 bot.set_webhook()
 
-@bot.message_handler(commands = ['start'])
+# -- @Kotik_HelperTGBot - Бот с этим кодом
+
+@bot.message_handler(commands = ['start']) # -- старт
 def start_message(message): 
     markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
 
@@ -17,7 +20,7 @@ def start_message(message):
 
     bot.send_message(message.chat.id, 'Привет, *{0.username}*. Я - бот для помощи в администрации каналов. Можете использовать кнопки.'.format(message.from_user), reply_markup = markup, parse_mode= 'Markdown')
     
-@bot.message_handler(func=lambda message: message.text == "О боте")
+@bot.message_handler(func=lambda message: message.text == "О боте") 
 def abtBot(message):
         bot.send_message(message.chat.id, 'Этот бот является моим школьным проектом и помощником для администрации каналов. Полный код на Github см. Credits ')
 
@@ -77,7 +80,7 @@ def mute_bunt(message):
         elif user_status1 != 'administrator' or user_status1 != 'creator':
              bot.reply_to(f"*{message.from_user.username}*, вы не админ.", parse_mode = 'Markdown')
         else:
-            duration = 60
+            duration = 60 # -- время
             args = message.text.split()[1:]
             if args:
                 try:
@@ -91,7 +94,7 @@ def mute_bunt(message):
                 if duration > 1440:
                     bot.reply_to(message, "Нельзя больше дня")
                     return
-            bot.restrict_chat_member(chat_id, user_id, until_date=time.time()+duration*60)
+            bot.restrict_chat_member(chat_id, user_id, until_date=time.time()+duration*60) # -- умножаем минуты на секунды и получаем время
             bot.reply_to(message, f"*{message.reply_to_message.from_user.username}* замучен на *{duration}* минут.",parse_mode = 'Markdown')
     else:
         bot.reply_to(message, "Используйте команду в ответ на чье-то сообщение")
