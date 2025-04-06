@@ -1,4 +1,4 @@
-# -- Разбирайтесь сами, мне лень писать ((( --
+                                                                                   # -- Разбирайтесь сами, мне лень писать ((( --
 import telebot
 from telebot import types
 import time
@@ -40,6 +40,8 @@ def abtBot(message):
 @bot.message_handler(func=lambda message: message.text == "Загрузка")
 def abtBot(message):
         bot.send_message(message.chat.id, '*Когда-нибудь* (а может и никогда)',parse_mode ='Markdown')
+    
+# -- я пыталась растянуть время кое-как 
 
 @bot.message_handler(content_types=["new_chat_members"])
 def new_member(message):
@@ -66,6 +68,8 @@ def kick_ppl(message):
             bot.reply_to(message, f"*{message.reply_to_message.from_user.username}* был кикнут.", parse_mode = 'Markdown')
     else:
         bot.reply_to(message, "Используйте команду в ответ на чье-то сообщение")
+        
+# -- мемов с 2017 больше не будет (наверное)
 
 @bot.message_handler(func=lambda message: message.text == "Мут")
 def mute_bunt(message):
@@ -98,6 +102,7 @@ def mute_bunt(message):
             bot.reply_to(message, f"*{message.reply_to_message.from_user.username}* замучен на *{duration}* минут.",parse_mode = 'Markdown')
     else:
         bot.reply_to(message, "Используйте команду в ответ на чье-то сообщение")
+        
 @bot.message_handler(func=lambda message: message.text == "Инмут")
 def unmute_bunt(message):
     if message.reply_to_message:
