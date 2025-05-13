@@ -24,32 +24,32 @@ def start_message(message):
 def abtBot(message):
         bot.send_message(message.chat.id, 'Этот бот является моим школьным проектом и помощником для администрации каналов. Полный код на Github см. Credits ')
 
-@bot.message_handler(func=lambda message: message.text == "Гладить")
+@bot.message_handler(func=lambda message: message.text == "Привет, @TgSh4Bot")
 def abtBot(message):
         name = message.from_user.username
-        bot.send_message(message.chat.id, f'*{name}* погладил(-а) кота',parse_mode= 'Markdown')
+        bot.send_message(message.chat.id, f'Привет, *{name}*',parse_mode= 'Markdown')
 
 @bot.message_handler(func=lambda message: message.text == "Credits")
 def abtBot(message):
-        bot.send_message(message.chat.id, '[Код для бота](https://github.com/DR-EM4sh/Kotik.HelperBot)',parse_mode ='Markdown')
+        bot.send_message(message.chat.id, '[Код для бота](https://github.com/DR-EM4sh/Tg-bot)',parse_mode ='Markdown')
 
 @bot.message_handler(func=lambda message: message.text == "Функции")
 def abtBot(message):
-        bot.send_message(message.chat.id, '*Кик* - как понятно, кикнуть бунтовщика. \n*Мут/Инмут* - заставит замолчать неугомонных спамеров (или наоборот). \nИ самое главное - *Гладить*',parse_mode= 'Markdown')
+        bot.send_message(message.chat.id, '*Кик* \n*Мут/Инмут* \n*Приветствие*',parse_mode= 'Markdown')
 
 @bot.message_handler(func=lambda message: message.text == "Загрузка")
 def abtBot(message):
         bot.send_message(message.chat.id, '*Когда-нибудь* (а может и никогда)',parse_mode ='Markdown')
     
-# -- я пыталась растянуть время кое-как 
+
 
 @bot.message_handler(content_types=["new_chat_members"])
 def new_member(message):
     name = message.new_chat_members[0].username
-    if name == "Kotik.Helper":
-        bot.send_message(message.chat.id, "Привет, теперь я буду здесь :3 ")  
+    if name == "TgSh4Bot":
+        bot.send_message(message.chat.id, "Привет, теперь я здесь ")  
     else:
-         bot.send_message(message.chat.id, f"Приветик, *{name}*! Добро пожаловать :3",parse_mode= 'Markdown')
+         bot.send_message(message.chat.id, f"Привет, *{name}*. Добро пожаловать! ",parse_mode= 'Markdown')
 
 @bot.message_handler(func=lambda message: message.text == "Кик")
 def kick_ppl(message):
@@ -68,8 +68,6 @@ def kick_ppl(message):
             bot.reply_to(message, f"*{message.reply_to_message.from_user.username}* был кикнут.", parse_mode = 'Markdown')
     else:
         bot.reply_to(message, "Используйте команду в ответ на чье-то сообщение")
-        
-# -- мемов с 2017 больше не будет (наверное)
 
 @bot.message_handler(func=lambda message: message.text == "Мут")
 def mute_bunt(message):
