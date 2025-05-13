@@ -5,7 +5,7 @@ import time
 bot = telebot.TeleBot('TOKEN') 
 bot.set_webhook()
 
-# -- @Kotik_HelperTGBot - Бот с этим кодом
+
 
 @bot.message_handler(commands = ['start']) # -- старт
 def start_message(message): 
